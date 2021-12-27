@@ -1,4 +1,4 @@
-package com.rawanalduhyshi.bookexchange
+package com.rawanalduhyshi.bookexchange.network
 
 import com.squareup.moshi.Json
 
@@ -11,7 +11,7 @@ data class DataResponse(
 	val kind: String? = null,
 
 	@Json(name="items")
-	val items: List<BooksItem?>? = null
+	val items: List<BooksItem>? = null
 )
 
 data class ImageLinks(

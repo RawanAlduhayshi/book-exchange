@@ -1,9 +1,8 @@
 package com.rawanalduhyshi.bookexchange.network
 
-import com.rawanalduhyshi.bookexchange.DataResponse
+
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -24,7 +23,7 @@ interface BookApiServer{
     suspend fun getBooksInfo(): DataResponse
 }
 
-object MovieApi {
+object BookApi {
     val retrofitServer: BookApiServer by lazy {
         retrofit.create(BookApiServer::class.java)
     }

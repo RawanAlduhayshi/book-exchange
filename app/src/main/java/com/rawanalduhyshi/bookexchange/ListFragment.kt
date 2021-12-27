@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.firebase.auth.FirebaseAuth
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import com.rawanalduhyshi.bookexchange.databinding.FragmentListBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,19 +20,26 @@ import com.google.firebase.auth.FirebaseAuth
  */
 class ListFragment : Fragment() {
 
-
+    private val viewModel:BookViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var authFirebase = FirebaseAuth.getInstance().currentUser
-        var i = authFirebase?.email
+//        var authFirebase = FirebaseAuth.getInstance().currentUser
+//        var i = authFirebase?.email
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false)
+     val binding= FragmentListBinding.inflate(inflater)
+        binding?.lifecycleOwner = this
+
+        // Giving the binding access to the OverviewViewModel
+        binding?.viewModel = viewModel
+
+        // Sets the adapter of the photosGrid RecyclerView
+        binding?.recyclerView?.adapter = BookGridAdapter()
+        return binding?.root
     }
 
 
