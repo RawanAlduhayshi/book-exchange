@@ -20,18 +20,18 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="380dp"
-        android:layout_height="705dp"
+        android:layout_width="375dp"
+        android:layout_height="221dp"
         android:clipToPadding="false"
-        android:orientation="vertical"
-        android:scrollbars="vertical"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:listData="@{viewModel.bookInfo}"
-        app:spanCount="2" />
+        app:spanCount="1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
