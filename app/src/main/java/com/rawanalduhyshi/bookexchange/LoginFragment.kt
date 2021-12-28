@@ -57,7 +57,7 @@ class LoginFragment : Fragment() {
                  button.text = "SignIn" }
          } else {
              button.text = "SignOut"
-             val action = LoginFragmentDirections.actionLoginFragmentToListFragment()
+             val action = LoginFragmentDirections.actionLoginFragmentToBlankFragment()
              findNavController().navigate(action)
 //             button?.setOnClickListener { AuthUI.getInstance().signOut(getContext()) }
          }
