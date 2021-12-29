@@ -14,4 +14,5 @@
     <string name="content_description_media">book here</string>
     <string name="secondary_text">book name</string>
     <string name="supporting_text">book author</string>
+    <string name="label">book name</string>
 </resources>

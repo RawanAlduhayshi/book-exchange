@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.rawanalduhyshi.bookexchange.adapters.BookGridAdapter
 import com.rawanalduhyshi.bookexchange.databinding.FragmentListBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -39,6 +42,13 @@ class ListFragment : Fragment() {
 
         // Sets the adapter of the photosGrid RecyclerView
         binding?.recyclerView?.adapter = BookGridAdapter()
+        binding?.btn.setOnClickListener {
+
+          //  Toast.makeText(requireContext(), "i am here", Toast.LENGTH_SHORT).show()
+            val action = ListFragmentDirections.actionListFragmentToBookDetailsFragment(3)
+            findNavController().navigate(action)
+
+        }
         return binding?.root
     }
 

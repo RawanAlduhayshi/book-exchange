@@ -1,6 +1,7 @@
 package com.rawanalduhyshi.bookexchange.network
 
 
+import com.rawanalduhyshi.bookexchange.data.DataResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit

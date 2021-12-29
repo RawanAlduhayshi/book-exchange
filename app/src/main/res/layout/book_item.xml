@@ -17,22 +17,26 @@
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="book_url"
-            type="com.rawanalduhyshi.bookexchange.network.BooksItem" />
+            type="com.rawanalduhyshi.bookexchange.data.BooksItem" />
+        <variable
+            name="card"
+            type="com.rawanalduhyshi.bookexchange.ListFragment" />
     </data>
-
+<!--com.google.android.material.card.MaterialCardView-->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card"
+        android:id="@+id/bookCarda"
         android:layout_width="134dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp">
 
         <LinearLayout
-            android:layout_width="140dp"
+            android:layout_width="157dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingLeft="4dp"
@@ -41,7 +45,6 @@
             android:paddingBottom="4dp">
 
             <!-- Media -->
-
             <ImageView
                 android:id="@+id/book_image"
                 android:layout_width="151dp"
@@ -54,7 +57,7 @@
                 app:srcCompat="@drawable/ic_baseline_person_24" />
 
             <LinearLayout
-                android:layout_width="121dp"
+                android:layout_width="157dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="4dp">
@@ -62,7 +65,7 @@
 
                 <TextView
                     android:id="@+id/book_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="113dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@{book_url.volumeInfo.title}"
@@ -79,10 +82,6 @@
                     android:textColor="?android:attr/textColorSecondary" />
 
             </LinearLayout>
-
-
         </LinearLayout>
-
     </com.google.android.material.card.MaterialCardView>
-
-    </layout>
+</layout>

@@ -1,4 +1,4 @@
-package com.rawanalduhyshi.bookexchange
+package com.rawanalduhyshi.bookexchange.adapters
 
 import android.view.View
 import android.widget.ImageView
@@ -6,7 +6,9 @@ import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.rawanalduhyshi.bookexchange.network.BooksItem
+import com.rawanalduhyshi.bookexchange.BookApiStatus
+import com.rawanalduhyshi.bookexchange.R
+import com.rawanalduhyshi.bookexchange.data.BooksItem
 
 
 

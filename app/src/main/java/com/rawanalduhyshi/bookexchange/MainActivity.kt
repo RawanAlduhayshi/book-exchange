@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +31,12 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         setupActionBarWithNavController(navController)
 
-       makeCurrentFragment(blankFragment)
+     if(FirebaseAuth.getInstance().currentUser!=null) {
+         makeCurrentFragment(blankFragment)
+
+     }else{
+
+     }
         val buttomNav = findViewById<BottomNavigationView>(R.id.buttom_navigation)
         buttomNav.setOnNavigationItemSelectedListener {
             when (it.itemId) {

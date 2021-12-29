@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="detailsViewModel"
+            type="com.rawanalduhyshi.bookexchange.BookViewModel" />
+        <variable
+            name="data"
+            type="com.rawanalduhyshi.bookexchange.data.BooksItem" />
+    </data>
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView android:id="@+id/bookImage"
+            android:layout_width="300sp"
+            android:layout_height="300sp"
+            android:layout_marginTop="0sp"
+            android:scaleType="fitXY"
+            app:imagUrl="@{detailsViewModel.bookImage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/bookTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="#8F0E256C"
+            android:text="@{detailsViewModel.bookName}"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/bookImage"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookImage" />
+
+        <TextView
+            android:id="@+id/bookSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="#8F0E256C"
+            android:text="@{detailsViewModel.bookSubtitle}"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/bookImage"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookTitle" />
+
+        <TextView
+            android:id="@+id/bookDescribtion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="10dp"
+            android:lineHeight="30dp"
+            android:textSize="16dp"
+            android:text="@{detailsViewModel.bookDescribtion}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bookSubtitle"
+            tools:text="asdfghjjjjjjhjllkjhgvbjvb" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

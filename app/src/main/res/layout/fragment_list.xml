@@ -17,6 +17,15 @@
     tools:content="com.rawanalduhayshi.bookexchange.ListFragment"
     android:layout_margin="@dimen/margin">
 
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textStyle="italic"
+    app:layout_constraintStart_toStartOf="parent"
+    android:id="@+id/btn"
+    app:layout_constraintTop_toTopOf="parent"
+    android:text="uashdiufhas"
+    android:textSize="34sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

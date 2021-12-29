@@ -1,4 +1,4 @@
-package com.rawanalduhyshi.bookexchange.network
+package com.rawanalduhyshi.bookexchange.data
 
 import com.squareup.moshi.Json
 

@@ -19,11 +19,26 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.rawanalduhyshi.bookexchange.ListFragment"
-        android:label="fragment_list"
-        tools:layout="@layout/fragment_list" />
+        android:label="fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_bookDetailsFragment"
+            app:destination="@id/bookDetailsFragment" />
+
+    </fragment>
     <fragment
         android:id="@+id/blankFragment"
         android:name="com.rawanalduhyshi.bookexchange.BlankFragment"
         android:label="fragment_blank"
         tools:layout="@layout/fragment_blank" />
+    <fragment
+        android:id="@+id/bookDetailsFragment"
+        android:name="com.rawanalduhyshi.bookexchange.BookDetailsFragment"
+        android:label="BookDetailsFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_bookDetailsFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
 </navigation>

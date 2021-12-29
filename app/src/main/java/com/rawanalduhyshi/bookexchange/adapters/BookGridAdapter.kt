@@ -1,14 +1,16 @@
-package com.rawanalduhyshi.bookexchange
-
-
+package com.rawanalduhyshi.bookexchange.adapters
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.rawanalduhyshi.bookexchange.ListFragmentDirections
 import com.rawanalduhyshi.bookexchange.databinding.BookItemBinding
-import com.rawanalduhyshi.bookexchange.network.BooksItem
-import com.rawanalduhyshi.bookexchange.network.VolumeInfo
+import com.rawanalduhyshi.bookexchange.data.BooksItem
 import androidx.recyclerview.widget.ListAdapter as ListAdapter
 
 
@@ -19,9 +21,10 @@ class BookGridAdapter:
                               BookItemBinding
     ): RecyclerView.ViewHolder(binding.root){
 
-//        val card: CardView = binding.cerdView
+        val card: CardView = binding.bookCarda
+        val bookImage: ImageView = binding.bookImage
 
-        fun bind(booksItems:BooksItem) {
+        fun bind(booksItems: BooksItem) {
             binding.bookUrl = booksItems
             binding.executePendingBindings()
         }
@@ -30,7 +33,7 @@ class BookGridAdapter:
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): BookGridAdapter.BookInfoViewHolder {
+    ): BookInfoViewHolder {
         return BookInfoViewHolder(BookItemBinding.inflate(LayoutInflater.from(parent.context))
         )
     }
@@ -39,10 +42,11 @@ class BookGridAdapter:
         val resultsItems = getItem(position)
         holder.bind(resultsItems)
 
-        holder.itemView.setOnClickListener {
+        holder.card.setOnClickListener {
             Log.e("TAG","id view :${position}")
-//            val action = loginFragmentDirections.loginFragmentToListFragment(position)
+//          val action = ListFragmentDirections.actionListFragmentToBookDetailsFragment(3)
 //            holder.itemView.findNavController().navigate(action)
+            Log.e("TAG", "setOnClickListener: i am here", )
 
         }
     }
@@ -50,11 +54,11 @@ class BookGridAdapter:
 
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<BooksItem>() {
-            override fun areItemsTheSame(oldItem:BooksItem, newItem: BooksItem): Boolean {
+            override fun areItemsTheSame(oldItem: BooksItem, newItem: BooksItem): Boolean {
                 return oldItem === newItem
             }
 
-            override fun areContentsTheSame(oldItem:BooksItem, newItem: BooksItem): Boolean {
+            override fun areContentsTheSame(oldItem: BooksItem, newItem: BooksItem): Boolean {
                 return oldItem.kind == newItem.kind
             }
         }
