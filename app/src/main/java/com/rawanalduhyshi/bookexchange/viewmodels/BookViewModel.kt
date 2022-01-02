@@ -19,7 +19,7 @@ class BookViewModel: ViewModel() {
     val bookName = MutableLiveData<String>()
     val bookDescribtion = MutableLiveData<String>()
     val bookSubtitle = MutableLiveData<String>()
-    val bookImage =MutableLiveData<String>()
+    val bookImage = MutableLiveData<String>()
 
 
 
@@ -30,7 +30,7 @@ class BookViewModel: ViewModel() {
         viewModelScope.launch {
             _status.value = BookApiStatus.LOADING
             try {
-                _bookInfo.value = BookApi.retrofitServer.getBooksInfo().items
+                _bookInfo.value = BookApi.retrofitServer.getBooksInfo(1).items!!
                 _status.value = BookApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = BookApiStatus.ERROR
@@ -39,15 +39,25 @@ class BookViewModel: ViewModel() {
         }
     }
 
-    fun booksInfo(position:Int){
-        val item= _bookInfo.value?.get(position)
-       bookName.value = item?.volumeInfo?.title
-        bookDescribtion.value=item?.volumeInfo?.description
-       bookSubtitle.value = item?.volumeInfo?.subtitle
-        bookImage.value = item?.volumeInfo?.imageLinks?.thumbnail
+   fun booksInfo(id: String){
+       viewModelScope.launch {
+           val item = BookApi.retrofitServer.getBooksWithVolumeId(id)
+           bookName.value = item?.volumeInfo?.title!!
+           Log.e("TAG", "tits"+bookName.value)
+           Log.e("TAG", "name here" + bookName.value!!)
+           bookDescribtion.value = item?.volumeInfo?.description ?: "Empty Description"
+           Log.e("TAG", "des" + bookDescribtion.value!!)
+           try {
+//        bookSubtitle.value = item?.volumeInfo?.subtitle!!
+               bookImage.value = item?.volumeInfo?.imageLinks?.thumbnail!!
+           } catch (e: Exception) {
+               Log.e("TAG", error(e))
+           }
+       }
 //        rating.value = item?.voteAverage
 
 
 
     }
+
 }

@@ -21,7 +21,7 @@ class BookGridAdapter:
                               BookItemBinding
     ): RecyclerView.ViewHolder(binding.root){
 
-        val card: CardView = binding.bookCarda
+        val card: CardView = binding.bookCard
         val bookImage: ImageView = binding.bookImage
 
         fun bind(booksItems: BooksItem) {
@@ -43,10 +43,10 @@ class BookGridAdapter:
         holder.bind(resultsItems)
 
         holder.card.setOnClickListener {
-            Log.e("TAG","id view :${position}")
-//          val action = ListFragmentDirections.actionListFragmentToBookDetailsFragment(3)
-//            holder.itemView.findNavController().navigate(action)
-            Log.e("TAG", "setOnClickListener: i am here", )
+
+          val action = ListFragmentDirections.actionListFragmentToBookDetailsFragment(resultsItems?.id ?: "")
+            holder.itemView.findNavController().navigate(action)
+
 
         }
     }

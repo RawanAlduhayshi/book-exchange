@@ -27,10 +27,13 @@
         <variable
             name="card"
             type="com.rawanalduhyshi.bookexchange.ListFragment" />
+        <variable
+            name="veiwModel"
+            type="com.rawanalduhyshi.bookexchange.BookViewModel" />
     </data>
 <!--com.google.android.material.card.MaterialCardView-->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/bookCarda"
+        android:id="@+id/bookCard"
         android:layout_width="134dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp">

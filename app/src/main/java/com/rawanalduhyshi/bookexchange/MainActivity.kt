@@ -1,67 +1,60 @@
 package com.rawanalduhyshi.bookexchange
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
+import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
+
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
-
-
-    private lateinit var navController: NavController
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val homeFragment = ListFragment()
-        val blankFragment = BlankFragment()
-        val profileFragment = ProfileFragment()
 
-        val navHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.navController
-        setupActionBarWithNavController(navController)
+        val button = findViewById<Button>(R.id.btn)
+        val signInLauncher = registerForActivityResult(FirebaseAuthUIActivityResultContract())
+        { res ->
+            this.onSignInResult(res)
 
-     if(FirebaseAuth.getInstance().currentUser!=null) {
-         makeCurrentFragment(blankFragment)
+        }
+        val providers = arrayListOf(AuthUI.IdpConfig.EmailBuilder().build())
+        // Create and launch sign-in intent
+        val signInIntent = AuthUI.getInstance()
+            .createSignInIntentBuilder()
+            .setAvailableProviders(providers)
+            .build()
 
-     }else{
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            button.setOnClickListener {
+                signInLauncher.launch(signInIntent)
 
-     }
-        val buttomNav = findViewById<BottomNavigationView>(R.id.buttom_navigation)
-        buttomNav.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.ic_home -> makeCurrentFragment(homeFragment)
-                R.id.ic_profile -> makeCurrentFragment(profileFragment)
-//                else -> {}
+//                var intent = Intent(this,HomeActivity::class.java)
+//                startActivity(intent)
             }
-            true
+        } else {
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            button.text = "SignOut"
+            button.setOnClickListener { AuthUI.getInstance().signOut(this) }
         }
-
     }
 
-
-    private fun makeCurrentFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fl_wrapper, fragment)
-            commit()
+    private fun onSignInResult(result: FirebaseAuthUIAuthenticationResult) {
+        val response = result.idpResponse
+        if (result.resultCode == RESULT_OK) {
+            val user = FirebaseAuth.getInstance().currentUser
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
         }
-
-
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
     }
-
-
 }
 
 

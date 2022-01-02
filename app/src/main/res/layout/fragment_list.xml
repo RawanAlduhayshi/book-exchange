@@ -17,15 +17,6 @@
     tools:content="com.rawanalduhayshi.bookexchange.ListFragment"
     android:layout_margin="@dimen/margin">
 
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textStyle="italic"
-    app:layout_constraintStart_toStartOf="parent"
-    android:id="@+id/btn"
-    app:layout_constraintTop_toTopOf="parent"
-    android:text="uashdiufhas"
-    android:textSize="34sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -41,6 +32,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:listData="@{viewModel.bookInfo}"
         app:spanCount="1" />
+
+    <ImageView
+        android:id="@+id/loginIcon"
+        android:layout_width="61dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_sharp_login_24" />
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="122dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="240dp"
+        android:text="login/sign Up"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/loginIcon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

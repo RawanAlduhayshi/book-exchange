@@ -15,4 +15,6 @@
     <string name="secondary_text">book name</string>
     <string name="supporting_text">book author</string>
     <string name="label">book name</string>
+    <string name="add_new_book">add New Book</string>
+    <string name="book_describtion">book describtion</string>
 </resources>

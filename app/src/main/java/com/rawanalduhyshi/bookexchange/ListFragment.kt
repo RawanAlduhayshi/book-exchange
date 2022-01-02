@@ -1,15 +1,23 @@
 package com.rawanalduhyshi.bookexchange
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
+import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
+import com.google.firebase.auth.FirebaseAuth
 import com.rawanalduhyshi.bookexchange.adapters.BookGridAdapter
+import com.rawanalduhyshi.bookexchange.databinding.FragmentAddBookBinding
 import com.rawanalduhyshi.bookexchange.databinding.FragmentListBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -19,11 +27,13 @@ import com.rawanalduhyshi.bookexchange.databinding.FragmentListBinding
 /**
  * A simple [Fragment] subclass.
  * Use the [ListFragment.newInstance] factory method to
- * create an instance of this fragment.
+
  */
 class ListFragment : Fragment() {
-
-    private val viewModel:BookViewModel by activityViewModels()
+    lateinit var login: TextView
+    lateinit var binding:FragmentListBinding
+    lateinit var loginButton: ImageView
+    private val viewModel: BookViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        var authFirebase = FirebaseAuth.getInstance().currentUser
@@ -34,7 +44,9 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-     val binding= FragmentListBinding.inflate(inflater)
+         binding =FragmentListBinding.inflate(inflater)
+        login = binding.login
+        loginButton = binding.loginIcon
         binding?.lifecycleOwner = this
 
         // Giving the binding access to the OverviewViewModel
@@ -42,15 +54,37 @@ class ListFragment : Fragment() {
 
         // Sets the adapter of the photosGrid RecyclerView
         binding?.recyclerView?.adapter = BookGridAdapter()
-        binding?.btn.setOnClickListener {
-
-          //  Toast.makeText(requireContext(), "i am here", Toast.LENGTH_SHORT).show()
-            val action = ListFragmentDirections.actionListFragmentToBookDetailsFragment(3)
-            findNavController().navigate(action)
-
-        }
+//        binding?.bookCard.setOnClickListener {
+//
+//          //  Toast.makeText(requireContext(), "i am here", Toast.LENGTH_SHORT).show()
+//            val action = ListFragmentDirections.actionListFragmentToBookDetailsFragment(3)
+//            findNavController().navigate(action)
+//
+//        }
         return binding?.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (FirebaseAuth.getInstance().currentUser != null) {
+
+            login.text = "SignOut"
+            loginButton.setOnClickListener {
+                AuthUI.getInstance().signOut(requireContext())
+                val action = ListFragmentDirections.actionListFragmentToMainActivity()
+                findNavController().navigate(action)
+            }
+        }
+
+        login.text = "login/sign Up"
+//        val action = ListFragmentDirections.actionListFragmentToMainActivity()
+//        findNavController().navigate(action)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+
+    }
 
 }
