@@ -30,6 +30,10 @@ interface BookApiServer{
 
     @GET("v1/volumes/{id}")
     suspend fun getBooksWithVolumeId(@Path("id") volumeId: String): BooksItem
+
+   @GET ("https://www.googleapis.com/books/v1/volumes?/q=flowers+intitle:keyes&key=yourAPIKey")
+   suspend fun searchForTitle():BooksItem
+
 }
 
 object BookApi {

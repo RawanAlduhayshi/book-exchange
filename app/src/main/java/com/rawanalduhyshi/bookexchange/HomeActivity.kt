@@ -1,5 +1,6 @@
 package com.rawanalduhyshi.bookexchange
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -43,7 +44,7 @@ class HomeActivity : AppCompatActivity() {
         BottomNavigationView.OnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.listFragment -> setCurrentFragment(homeFragment)
-                R.id.profileFragment ->setCurrentFragment(profileFragment)
+                R.id.profileFragment -> setCurrentFragment(profileFragment)
                 R.id.addBookFragment ->setCurrentFragment(addBookFragment)
 //                else -> {}
             }

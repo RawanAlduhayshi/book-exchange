@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_listFragment_to_mainActivity"
             app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_listFragment_to_listBookAddedFragment"
+            app:destination="@id/listBookAddedFragment" />
 
     </fragment>
     <fragment
@@ -41,4 +44,17 @@
         android:name="com.rawanalduhyshi.bookexchange.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <activity
+        android:id="@+id/drawerActivity"
+        android:name="com.rawanalduhyshi.bookexchange.DrawerActivity"
+        android:label="DrawerActivity" />
+    <fragment
+        android:id="@+id/listBookAddedFragment"
+        android:name="com.rawanalduhyshi.bookexchange.ListBookAddedFragment"
+        android:label="fragment_list_book_added"
+        tools:layout="@layout/fragment_list_book_added" >
+        <action
+            android:id="@+id/action_listBookAddedFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
 </navigation>

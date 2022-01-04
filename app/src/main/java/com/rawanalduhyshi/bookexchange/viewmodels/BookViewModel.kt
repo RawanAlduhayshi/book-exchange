@@ -42,19 +42,20 @@ class BookViewModel: ViewModel() {
    fun booksInfo(id: String){
        viewModelScope.launch {
            val item = BookApi.retrofitServer.getBooksWithVolumeId(id)
-           bookName.value = item?.volumeInfo?.title!!
+           bookName.value = item?.volumeInfo?.title?:"Empty Title"
+           bookName.value= item?.volumeInfo?.subtitle?:"Empty Subtitle"
            Log.e("TAG", "tits"+bookName.value)
            Log.e("TAG", "name here" + bookName.value!!)
            bookDescribtion.value = item?.volumeInfo?.description ?: "Empty Description"
            Log.e("TAG", "des" + bookDescribtion.value!!)
            try {
-//        bookSubtitle.value = item?.volumeInfo?.subtitle!!
-               bookImage.value = item?.volumeInfo?.imageLinks?.thumbnail!!
+
+               bookImage.value = item?.volumeInfo?.imageLinks?.thumbnail?:"Empty Image"
            } catch (e: Exception) {
                Log.e("TAG", error(e))
            }
        }
-//        rating.value = item?.voteAverage
+
 
 
 

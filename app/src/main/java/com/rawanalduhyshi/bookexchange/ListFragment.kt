@@ -2,9 +2,7 @@ package com.rawanalduhyshi.bookexchange
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -31,20 +29,19 @@ import com.rawanalduhyshi.bookexchange.databinding.FragmentListBinding
  */
 class ListFragment : Fragment() {
     lateinit var login: TextView
-    lateinit var binding:FragmentListBinding
+    lateinit var binding: FragmentListBinding
     lateinit var loginButton: ImageView
     private val viewModel: BookViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        var authFirebase = FirebaseAuth.getInstance().currentUser
-//        var i = authFirebase?.email
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         binding =FragmentListBinding.inflate(inflater)
+        binding = FragmentListBinding.inflate(inflater)
         login = binding.login
         loginButton = binding.loginIcon
         binding?.lifecycleOwner = this
@@ -71,14 +68,24 @@ class ListFragment : Fragment() {
             login.text = "SignOut"
             loginButton.setOnClickListener {
                 AuthUI.getInstance().signOut(requireContext())
-                val action = ListFragmentDirections.actionListFragmentToMainActivity()
-                findNavController().navigate(action)
+                    .addOnCompleteListener { requireActivity().finish() }
             }
+        } else {
+            login.text = "login/sign Up"
         }
-
-        login.text = "login/sign Up"
 //        val action = ListFragmentDirections.actionListFragmentToMainActivity()
 //        findNavController().navigate(action)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.profile_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        var itemId = item.itemId
+        val action = ListFragmentDirections.actionListFragmentToListBookAddedFragment()
+        findNavController().navigate(action)
+        return true
     }
 
     override fun onDestroy() {
