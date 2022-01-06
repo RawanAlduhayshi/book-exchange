@@ -11,12 +11,11 @@
         android:id="@+id/add_book_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/add_new_book"
         android:textSize="24sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,23 +23,22 @@
         android:id="@+id/bookName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="124dp"
         android:ems="10"
         android:hint="Book Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="#757575"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/add_book_name" />
 
     <EditText
         android:id="@+id/bookDescri"
-        android:layout_width="211dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
+        android:layout_width="309dp"
+        android:layout_height="165dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="36dp"
+        android:ems="4"
         android:gravity="start|top"
         android:hint="@string/book_describtion"
         android:inputType="textMultiLine"
@@ -51,9 +49,19 @@
         android:id="@+id/upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="56dp"
         android:text="add book"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookAuthor" />
+
+    <EditText
+        android:id="@+id/bookAuthor"
+        android:layout_width="201dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:hint="book author"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookDescri" />
 

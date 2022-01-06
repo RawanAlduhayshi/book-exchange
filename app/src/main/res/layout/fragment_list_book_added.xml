@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/hh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/margin"
@@ -12,23 +11,23 @@
 
     <TextView
         android:id="@+id/book_name"
-        android:layout_width="65dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="@dimen/margin_between_elements"
         android:layout_marginTop="16dp"
         android:text="Book Name"
-        app:layout_constraintEnd_toStartOf="@+id/book_description"
+        style="@style/Widget.BookExchange.Header"
+        app:layout_constraintEnd_toStartOf="@+id/book_authors"
         app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
-        android:id="@+id/book_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
+        android:id="@+id/book_authors"
+        style="@style/Widget.BookExchange.Header"
+        android:layout_below="@+id/book_name"
+        android:layout_marginStart="76dp"
         android:layout_marginTop="16dp"
-        android:text="description"
+        android:text="author"
         android:textAlignment="center"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/book_name"
@@ -42,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/book_description" />
+        app:layout_constraintTop_toBottomOf="@+id/book_authors" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

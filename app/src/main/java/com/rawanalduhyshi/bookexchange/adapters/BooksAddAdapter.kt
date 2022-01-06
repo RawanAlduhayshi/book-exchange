@@ -9,11 +9,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.rawanalduhyshi.bookexchange.R
 import com.rawanalduhyshi.bookexchange.data.Book
+import com.rawanalduhyshi.bookexchange.data.BookInfo
 import com.rawanalduhyshi.bookexchange.data.BooksItem
 import com.rawanalduhyshi.bookexchange.databinding.BookListBookBinding
 
 
-class BooksAddAdapter: ListAdapter<Book, BooksAddAdapter.BooksViewHolder>(DiffCallback) {
+class BooksAddAdapter: ListAdapter<BookInfo, BooksAddAdapter.BooksViewHolder>(DiffCallback) {
     class BooksViewHolder(private var binding:
                           BookListBookBinding
     ): RecyclerView.ViewHolder(binding.root){
@@ -21,7 +22,7 @@ class BooksAddAdapter: ListAdapter<Book, BooksAddAdapter.BooksViewHolder>(DiffCa
 //        val nameBook:TextView = binding.itemBookName
 //        val nameDescription: TextView= binding.itemBookDescription
 
-        fun bind(booksItem: Book) {
+        fun bind(booksItem: BookInfo) {
             binding.bookInfo = booksItem
             binding.executePendingBindings()
         }
@@ -44,13 +45,13 @@ class BooksAddAdapter: ListAdapter<Book, BooksAddAdapter.BooksViewHolder>(DiffCa
 
 
     }
-     companion object DiffCallback  : DiffUtil.ItemCallback<Book>(){
+     companion object DiffCallback  : DiffUtil.ItemCallback<BookInfo>(){
 
-            override fun areItemsTheSame(oldItem:Book, newItem: Book): Boolean {
+            override fun areItemsTheSame(oldItem:BookInfo, newItem: BookInfo): Boolean {
                 return oldItem === newItem
             }
 
-            override fun areContentsTheSame(oldItem: Book, newItem: Book): Boolean {
+            override fun areContentsTheSame(oldItem: BookInfo, newItem: BookInfo): Boolean {
                 return oldItem.name == newItem.name
             }
         }

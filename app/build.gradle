@@ -61,6 +61,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+
+    // Declare the dependency for the Realtime Database library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.0.0'
@@ -70,6 +76,7 @@ dependencies {
     // Room libraries
     implementation "androidx.room:room-runtime:$room_version"
     implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     // Coil

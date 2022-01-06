@@ -2,6 +2,7 @@ package com.rawanalduhyshi.bookexchange
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -21,9 +22,9 @@ class HomeActivity : AppCompatActivity() {
 
 
         val homeFragment = ListFragment()
-        val blankFragment = BlankFragment()
-        val profileFragment = ProfileFragment()
+        val profileFragment = UserProfileFragment()
         val addBookFragment = AddBookFragment()
+        var requestBookFragment = RequestBookFragment()
 //        setCurrentFragment(homeFragment)
 //        val navHostFragment =
 //            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -44,8 +45,12 @@ class HomeActivity : AppCompatActivity() {
         BottomNavigationView.OnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.listFragment -> setCurrentFragment(homeFragment)
-                R.id.profileFragment -> setCurrentFragment(profileFragment)
+                R.id.userProfileFragment -> {
+                    Toast.makeText(this, "~User profile", Toast.LENGTH_SHORT).show()
+                    setCurrentFragment(profileFragment)
+                }
                 R.id.addBookFragment ->setCurrentFragment(addBookFragment)
+                R.id.requestBookFragment -> setCurrentFragment(requestBookFragment)
 //                else -> {}
             }
             true

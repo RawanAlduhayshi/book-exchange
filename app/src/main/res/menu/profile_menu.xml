@@ -5,7 +5,13 @@
         android:icon="@drawable/ic_sharp_login_24"
         android:title="login" />
     <item
-        android:id="@+id/profile"
+        android:id="@+id/added_books"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="profile setting" />
+        android:title="Added Books" />
+    <item
+        android:id="@+id/requested_books"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Requested Books"
+        />
+
 </menu>

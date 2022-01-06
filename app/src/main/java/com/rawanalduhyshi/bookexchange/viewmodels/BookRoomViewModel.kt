@@ -1,19 +1,18 @@
 package com.rawanalduhyshi.bookexchange.viewmodels
 
-import android.content.ClipData
 import androidx.lifecycle.*
-import com.google.type.DateTime
-import com.rawanalduhyshi.bookexchange.SingleLiveEvent
 
+import com.rawanalduhyshi.bookexchange.SingleLiveEvent
 
 import com.rawanalduhyshi.bookexchange.data.Book
 import com.rawanalduhyshi.bookexchange.data.BookDao
+import com.rawanalduhyshi.bookexchange.data.BookInfo
 import kotlinx.coroutines.launch
 import java.util.*
 
 class BookRoomViewModel(private val bookDao: BookDao) : ViewModel()  {
     val allItems: LiveData<List<Book>> = bookDao.getItems().asLiveData()
-
+//val booksAdded:LiveData<List<BookInfo>> =
     val successfullyAdded = SingleLiveEvent<Void>()
 
     fun addNewItem(itemName: String, description: String) {
@@ -40,15 +39,9 @@ class BookRoomViewModel(private val bookDao: BookDao) : ViewModel()  {
         return Book(
             id= Calendar.getInstance().time.time,
             name= bookName,
-            description = description
-        )
+            description = description)
     }
-    /**
-     * Retrieve an item from the repository.
-     */
-    fun retrieveItem(id: Int): LiveData<Book> {
-        return bookDao.getItem(id).asLiveData()
-    }
+
 }
 
 class BookViewModelFactory(private val bookDao: BookDao) : ViewModelProvider.Factory {

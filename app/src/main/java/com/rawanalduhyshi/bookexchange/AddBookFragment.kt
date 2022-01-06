@@ -1,35 +1,32 @@
 package com.rawanalduhyshi.bookexchange
 
-import android.app.Activity.RESULT_OK
-import android.app.ProgressDialog
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
-import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.rawanalduhyshi.bookexchange.databinding.FragmentAddBookBinding
-import com.rawanalduhyshi.bookexchange.databinding.FragmentListBinding
 import com.rawanalduhyshi.bookexchange.viewmodels.BookRoomViewModel
 import com.rawanalduhyshi.bookexchange.viewmodels.BookViewModelFactory
-import java.net.URI
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class AddBookFragment : Fragment() {
-lateinit var binding:FragmentAddBookBinding
-lateinit var imageUri: Uri
+    lateinit var binding: FragmentAddBookBinding
+
+    val db = Firebase.firestore
+
     private val viewModel: BookRoomViewModel by activityViewModels {
         BookViewModelFactory(
             (requireActivity().application as BookApplication).database.bookDao()
         )
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -39,7 +36,7 @@ lateinit var imageUri: Uri
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-      binding= FragmentAddBookBinding.inflate(inflater)
+        binding = FragmentAddBookBinding.inflate(inflater)
 //        binding.uploadBtn.setOnClickListener {
 //            // selectImage()
 //        }
@@ -53,22 +50,52 @@ lateinit var imageUri: Uri
             Toast.makeText(requireContext(), "Successfully Added", Toast.LENGTH_SHORT).show()
             binding.bookName.setText("")
             binding.bookDescri.setText("")
+//            binding.bookAuthor.setText("")
+
         })
         return binding?.root
     }
+
     private fun isEntryValid(): Boolean {
         return viewModel.isEntryValid(
             binding.bookName.text.toString(),
             binding.bookDescri.text.toString()
+//            binding.bookAuthor.text.toString()
+//            (FirebaseAuth.getInstance().currentUser?: "") as String
         )
     }
 
     private fun addNewItem() {
         if (isEntryValid()) {
-            viewModel.addNewItem(
-                binding.bookName.text.toString(),
-                binding.bookDescri.text.toString()
+            val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+            val AddedBook = hashMapOf(
+                "name" to binding.bookName.text.toString(),
+                "description" to binding.bookDescri.text.toString(),
+                "author" to binding.bookAuthor.text.toString(),
+                "bookId" to Math.random().toString(),
+                "userId" to FirebaseAuth.getInstance().currentUser?.uid.toString()
             )
+            val documentReference: DocumentReference = db.collection("books").document(userId)
+            db.collection("books")
+                .add(AddedBook)
+                .addOnSuccessListener { documentReference ->
+
+                }
+
+                .addOnFailureListener { e ->
+
+                }
+
+            FirebaseAuth.getInstance().currentUser?.let {
+                viewModel.addNewItem(
+                    binding.bookName.text.toString(),
+                    binding.bookDescri.text.toString()
+
+//                    it.uid,
+
+                )
+            }
+
         }
     }
 

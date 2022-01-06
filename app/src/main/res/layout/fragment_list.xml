@@ -22,14 +22,15 @@
         android:id="@+id/recyclerView"
         android:layout_width="375dp"
         android:layout_height="221dp"
+        android:layout_marginTop="12dp"
         android:clipToPadding="false"
         android:orientation="horizontal"
         android:scrollbars="horizontal"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginIcon"
         app:listData="@{viewModel.bookInfo}"
         app:spanCount="1" />
 
@@ -38,8 +39,9 @@
         android:layout_width="61dp"
         android:layout_height="37dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="300dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.371"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_sharp_login_24" />
 
@@ -47,12 +49,41 @@
         android:id="@+id/login"
         android:layout_width="122dp"
         android:layout_height="35dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="240dp"
+        android:layout_marginTop="16dp"
         android:text="login/sign Up"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/loginIcon" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="376dp"
+        android:layout_height="172dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.333"
+        app:srcCompat="@drawable/be"
+        tools:srcCompat="@drawable/be" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="375dp"
+        android:layout_height="221dp"
+        android:layout_marginTop="13dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/success" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,11 +9,11 @@
         android:icon="@drawable/ic_baseline_add_circle_outline_24"
         android:title="Add Book" />
     <item
-        android:id="@+id/ic_chat"
+        android:id="@+id/requestBookFragment"
         android:icon="@drawable/ic_baseline_chat_24"
-        android:title="Add Book" />
+        android:title="Request Book" />
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/userProfileFragment"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Profile" />
 
