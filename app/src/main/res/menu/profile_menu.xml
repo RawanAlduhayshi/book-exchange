@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/login"
+        android:icon="@drawable/ic_sharp_login_24"
+        android:title="login" />
+    <item
+        android:id="@+id/added_books"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Added Books" />
+    <item
+        android:id="@+id/requested_books"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Requested Books"
+        />
+
+</menu>

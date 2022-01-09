@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listFragment">
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.rawanalduhyshi.bookexchange.ListFragment"
+        android:label="fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_bookDetailsFragment"
+            app:destination="@id/bookDetailsFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_listFragment_to_listBookAddedFragment"
+            app:destination="@id/listBookAddedFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/bookDetailsFragment"
+        android:name="com.rawanalduhyshi.bookexchange.BookDetailsFragment"
+        android:label="BookDetailsFragment" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_bookDetailsFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.rawanalduhyshi.bookexchange.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/addBookFragment"
+        android:name="com.rawanalduhyshi.bookexchange.AddBookFragment"
+        android:label="AddBookFragment" />
+    <activity
+        android:id="@+id/drawerActivity"
+        android:name="com.rawanalduhyshi.bookexchange.DrawerActivity"
+        android:label="DrawerActivity" />
+    <fragment
+        android:id="@+id/listBookAddedFragment"
+        android:name="com.rawanalduhyshi.bookexchange.ListBookAddedFragment"
+        android:label="fragment_list_book_added"
+        tools:layout="@layout/fragment_list_book_added" >
+        <action
+            android:id="@+id/action_listBookAddedFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.rawanalduhyshi.bookexchange.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/requestBookFragment"
+        android:name="com.rawanalduhyshi.bookexchange.RequestBookFragment"
+        android:label="fragment_request_book"
+        tools:layout="@layout/fragment_request_book" />
+</navigation>

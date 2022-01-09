@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+    <variable
+        name = "bookInfo"
+        type="com.rawanalduhyshi.bookexchange.data.BookInfo"/>
+    <variable
+        name="oneBookViewModel"
+        type="com.rawanalduhyshi.bookexchange.viewmodels.BookRoomViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/item_book_name"
+            style="@style/Widget.BookExchange.ListBookTextView"
+            android:layout_width="180dp"
+            android:layout_marginStart="@dimen/margin_between_elements"
+            android:fontFamily="sans-serif"
+            android:text="book name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bookAuthor"
+            android:layout_width="142dp"
+            android:layout_height="43dp"
+            android:text="book author"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.469"
+            app:layout_constraintStart_toEndOf="@+id/item_book_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/book_author"-->
+        <!--            android:layout_width="71dp"-->
+        <!--            android:layout_height="39dp"-->
+        <!--            android:layout_marginStart="79dp"-->
+        <!--            android:text="author"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/item_book_name"-->
+        <!--            tools:layout_editor_absoluteY="4dp" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
