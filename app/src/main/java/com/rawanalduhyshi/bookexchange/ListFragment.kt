@@ -44,7 +44,7 @@ class ListFragment : Fragment() {
         binding = FragmentListBinding.inflate(inflater)
         login = binding.login
         loginButton = binding.loginIcon
-        binding?.lifecycleOwner = this
+        binding?.lifecycleOwner =viewLifecycleOwner
 
         // Giving the binding access to the OverviewViewModel
         binding?.viewModel = viewModel

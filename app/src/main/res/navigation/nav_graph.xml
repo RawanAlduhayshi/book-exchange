@@ -57,4 +57,9 @@
         android:name="com.rawanalduhyshi.bookexchange.UserProfileFragment"
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/requestBookFragment"
+        android:name="com.rawanalduhyshi.bookexchange.RequestBookFragment"
+        android:label="fragment_request_book"
+        tools:layout="@layout/fragment_request_book" />
 </navigation>

@@ -26,14 +26,14 @@ class RequestBookRoomViewModel(private val bookDao: BookDao) : ViewModel(){
             successfullyAdded.call()
         }
     }
-
-    private fun isRequestEntryValid(bookNameRequested: String,descriptionRequested:String): Boolean {
-        if (bookNameRequested.isBlank() || descriptionRequested.isBlank())  {
+    fun isEntryValid(bookName: String,description:String): Boolean {
+        if (bookName.isBlank() || description.isBlank())  {
             return false
         }
-   return false
-
+        return true
     }
+
+
     private fun RequestNewBookEntery(bookName: String, description: String):Book {
         return Book(
             id= Calendar.getInstance().time.time,

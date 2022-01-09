@@ -12,7 +12,7 @@ import java.util.*
 
 class BookRoomViewModel(private val bookDao: BookDao) : ViewModel()  {
     val allItems: LiveData<List<Book>> = bookDao.getItems().asLiveData()
-//val booksAdded:LiveData<List<BookInfo>> =
+
     val successfullyAdded = SingleLiveEvent<Void>()
 
     fun addNewItem(itemName: String, description: String) {
