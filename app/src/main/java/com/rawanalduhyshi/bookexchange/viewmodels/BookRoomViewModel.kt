@@ -16,7 +16,7 @@ import java.util.*
 class BookRoomViewModel(private val bookDao: BookDao) : ViewModel() {
     val allItems: LiveData<List<Book>> = bookDao.getItems().asLiveData()
     private val booksCollectionRef = Firebase.firestore.collection("books")
-    val successfullyAdded = SingleLiveEvent<Void>()
+    private val successfullyAdded = SingleLiveEvent<Void>()
 
     fun addNewItem(itemName: String, description: String) {
         val newBook = addNewItemEntry(itemName, description)
