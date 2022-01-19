@@ -6,64 +6,137 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RequestBookFragment">
-
-    <TextView
-        android:id="@+id/requestBook"
-        android:layout_width="150dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="8dp"
-        android:text="Request New Book"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/requestNameLayout"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="@string/label">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/request_book_name"
+            android:layout_width="match_parent"
+            android:lines="1"
 
-        android:id="@+id/request_book_name"
-        android:layout_width="167dp"
-        android:layout_height="48dp"
-        android:layout_margin="@dimen/margin"
-        android:layout_marginTop="8dp"
-        android:hint="add book name"
+            android:inputType="text"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+<!--    <EditText-->
+
+<!--        android:id="@+id/request_book_name"-->
+<!--        android:layout_width="372dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_margin="@dimen/margin"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:hint="add book name"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.41"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/requestDescriptionLayout"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/requestBook" />
 
-    <EditText
-        android:id="@+id/request_book_description"
-        android:layout_width="173dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:hint=" book description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/request_book_name" />
+        app:layout_constraintTop_toBottomOf="@+id/requestNameLayout"
+        android:hint="@string/book_describtion">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/request_book_description"
+            android:layout_width="match_parent"
+            android:lines="9"
+
+            android:inputType="text"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/requestAuthorLayout"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/requestDescriptionLayout"
+            android:hint="@string/supporting_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/request_book_author"
+                android:layout_width="match_parent"
+                android:lines="1"
+
+                android:inputType="text"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    <!--    <EditText-->
+<!--        android:id="@+id/request_book_description"-->
+<!--        android:layout_width="375dp"-->
+<!--        android:layout_height="52dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:hint=" book description"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.444"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/request_book_name" />-->
 
     <Button
         android:id="@+id/request_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="436dp"
+        android:layout_marginTop="30dp"
         android:text="Request Book"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.24"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/request_book_author"
-        android:layout_width="175dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="34dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/request_book"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/request_book_description"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/image"
+ />
+
+<!--    <EditText-->
+<!--        android:id="@+id/request_book_author"-->
+<!--        android:layout_width="377dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:hint="book author"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.47"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/request_book_description" />-->
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="247dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="30dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/select"
+        app:layout_constraintTop_toBottomOf="@+id/requestAuthorLayout" />
+
+    <Button
+        android:id="@+id/select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="sellct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/requestAuthorLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

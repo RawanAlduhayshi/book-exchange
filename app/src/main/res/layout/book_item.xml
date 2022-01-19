@@ -29,7 +29,7 @@
             type="com.rawanalduhyshi.bookexchange.ListFragment" />
         <variable
             name="veiwModel"
-            type="com.rawanalduhyshi.bookexchange.BookViewModel" />
+            type="com.rawanalduhyshi.bookexchange.viewmodels.BookViewModel" />
     </data>
 <!--com.google.android.material.card.MaterialCardView-->
     <com.google.android.material.card.MaterialCardView
@@ -39,8 +39,8 @@
         android:layout_margin="8dp">
 
         <LinearLayout
-            android:layout_width="157dp"
-            android:layout_height="match_parent"
+            android:layout_width="190dp"
+            android:layout_height="194dp"
             android:orientation="vertical"
             android:paddingLeft="4dp"
             android:paddingTop="8dp"
@@ -50,8 +50,9 @@
             <!-- Media -->
             <ImageView
                 android:id="@+id/book_image"
-                android:layout_width="151dp"
-                android:layout_height="198dp"
+                android:layout_width="186dp"
+                android:layout_height="179dp"
+                android:layout_margin="8dp"
                 android:contentDescription="@string/content_description_media"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
@@ -59,32 +60,32 @@
                 app:imagUrl="@{book_url.volumeInfo.imageLinks.thumbnail}"
                 app:srcCompat="@drawable/ic_baseline_person_24" />
 
-            <LinearLayout
-                android:layout_width="157dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="4dp">
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="157dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="4dp">-->
 
 
-                <TextView
-                    android:id="@+id/book_name"
-                    android:layout_width="113dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@{book_url.volumeInfo.title}"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/book_name"-->
+            <!--                    android:layout_width="113dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginTop="8dp"-->
+            <!--                    android:text="@{book_url.volumeInfo.title}"-->
+            <!--                    android:textAppearance="?attr/textAppearanceBody2"-->
+            <!--                    android:textColor="?android:attr/textColorSecondary" />-->
 
-                <TextView
-                    android:id="@+id/author"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/supporting_text"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/author"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginTop="16dp"-->
+            <!--                    android:text="@string/supporting_text"-->
+            <!--                    android:textAppearance="?attr/textAppearanceBody2"-->
+            <!--                    android:textColor="?android:attr/textColorSecondary" />-->
 
-            </LinearLayout>
         </LinearLayout>
+<!--        </LinearLayout>-->
     </com.google.android.material.card.MaterialCardView>
 </layout>

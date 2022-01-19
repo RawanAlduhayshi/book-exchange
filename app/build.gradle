@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
     id 'androidx.navigation.safeargs.kotlin'
+
 }
 
 android {
@@ -54,7 +55,7 @@ android {
 }
 
 dependencies {
-
+//    implementation 'de.hdodenhof:'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
@@ -82,7 +83,7 @@ dependencies {
     // Coil
     implementation "io.coil-kt:coil:1.1.1"
     implementation 'com.google.firebase:firebase-storage-ktx:20.0.0'
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.13.2'
     // Moshi
     implementation 'com.squareup.moshi:moshi-kotlin:1.9.3'
 
@@ -104,8 +105,17 @@ dependencies {
 
     implementation "androidx.fragment:fragment-ktx:1.4.0"
     //RecyclerView
-//§
+
 
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging:20.2.3'
+   implementation 'com.github.bumptech.glide:glide:4.11.0'
+   kapt 'com.github.bumptech.glide:compiler:4.11.0'
+//coroutine
 
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1'
+    implementation "androidx.core:core-ktx:$core_version"
+    implementation("androidx.drawerlayout:drawerlayout:1.1.1")
+//    implementation 'com.github.bumptech.glide:glide:4.12.0'
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 }

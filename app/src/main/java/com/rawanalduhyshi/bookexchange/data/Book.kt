@@ -1,6 +1,5 @@
 package com.rawanalduhyshi.bookexchange.data
 
-import android.app.ActivityManager
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -15,6 +14,5 @@ data class Book(
     val description: String
 
 
-
-    )
+)
 

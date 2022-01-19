@@ -1,16 +1,17 @@
 package com.rawanalduhyshi.bookexchange.adapters
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
+
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.rawanalduhyshi.bookexchange.ListFragmentDirections
+import com.rawanalduhyshi.bookexchange.R
 import com.rawanalduhyshi.bookexchange.databinding.BookItemBinding
 import com.rawanalduhyshi.bookexchange.data.BooksItem
+import com.rawanalduhyshi.bookexchange.databinding.BookAddedItemBinding
 import androidx.recyclerview.widget.ListAdapter as ListAdapter
 
 
@@ -21,8 +22,7 @@ class BookGridAdapter:
                               BookItemBinding
     ): RecyclerView.ViewHolder(binding.root){
 
-        val card: CardView = binding.bookCard
-        val bookImage: ImageView = binding.bookImage
+        val image: CardView = itemView.findViewById(R.id.bookCard)
 
         fun bind(booksItems: BooksItem) {
             binding.bookUrl = booksItems
@@ -42,7 +42,7 @@ class BookGridAdapter:
         val resultsItems = getItem(position)
         holder.bind(resultsItems)
 
-        holder.card.setOnClickListener {
+        holder.image.setOnClickListener {
 
           val action = ListFragmentDirections.actionListFragmentToBookDetailsFragment(resultsItems?.id ?: "")
             holder.itemView.findNavController().navigate(action)

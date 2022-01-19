@@ -17,6 +17,15 @@
         <action
             android:id="@+id/action_listFragment_to_listBookAddedFragment"
             app:destination="@id/listBookAddedFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_bookAddedDetailsFragment"
+            app:destination="@id/bookAddedDetailsFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_requestDetailsFragment"
+            app:destination="@id/requestDetailsFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_myRequestListFragment"
+            app:destination="@id/myRequestListFragment" />
 
     </fragment>
     <fragment
@@ -39,10 +48,6 @@
         android:id="@+id/addBookFragment"
         android:name="com.rawanalduhyshi.bookexchange.AddBookFragment"
         android:label="AddBookFragment" />
-    <activity
-        android:id="@+id/drawerActivity"
-        android:name="com.rawanalduhyshi.bookexchange.DrawerActivity"
-        android:label="DrawerActivity" />
     <fragment
         android:id="@+id/listBookAddedFragment"
         android:name="com.rawanalduhyshi.bookexchange.ListBookAddedFragment"
@@ -62,4 +67,41 @@
         android:name="com.rawanalduhyshi.bookexchange.RequestBookFragment"
         android:label="fragment_request_book"
         tools:layout="@layout/fragment_request_book" />
+    <fragment
+        android:id="@+id/bookAddedDetailsFragment"
+        android:name="com.rawanalduhyshi.bookexchange.BookAddedDetailsFragment"
+        android:label="fragment_book_added_details"
+        tools:layout="@layout/fragment_book_added_details" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_bookAddedDetailsFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_bookAddedDetailsFragment_to_alertFragment"
+            app:destination="@id/alertFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestDetailsFragment"
+        android:name="com.rawanalduhyshi.bookexchange.RequestDetailsFragment"
+        android:label="fragment_request_details"
+        tools:layout="@layout/fragment_request_details" >
+        <action
+            android:id="@+id/action_requestDetailsFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/alertFragment"
+        android:name="com.rawanalduhyshi.bookexchange.AlertFragment"
+        android:label="fragment_alert"
+        tools:layout="@layout/fragment_alert" />
+    <fragment
+        android:id="@+id/myRequestListFragment"
+        android:name="com.rawanalduhyshi.bookexchange.MyRequestListFragment"
+        android:label="fragment_my_request_list"
+        tools:layout="@layout/fragment_my_request_list" />
 </navigation>
