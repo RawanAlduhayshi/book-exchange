@@ -46,7 +46,7 @@ class UserProfileFragment : Fragment() {
         db.collection("users").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if (error != null) {
-                    Log.e("firestore error", error.message.toString())
+                    Log.e("Firestore error", error.message.toString())
                     return
                 }
                 for (dc: DocumentChange in value?.documentChanges!!) {
@@ -58,8 +58,7 @@ class UserProfileFragment : Fragment() {
                 user_email.text = user?.email
                 user_name.text = user?.fName
             }
-//                val sharedPref = activity?.getSharedPreferences(
-//                    getString(R.string.book_describtion), Context.MODE_PRIVATE)
+
         })
         return binding.root
 
@@ -144,4 +143,7 @@ class UserProfileFragment : Fragment() {
 
 }
 
-data class FirebaseUser(val fName: String = "", val email: String = "", val userId: String = "")
+data class FirebaseUser(
+    val fName: String = "",
+    val email: String = "",
+    val userId: String = "")

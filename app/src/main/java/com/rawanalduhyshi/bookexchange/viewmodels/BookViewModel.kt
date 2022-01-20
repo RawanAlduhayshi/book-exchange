@@ -44,9 +44,9 @@ class BookViewModel : ViewModel() {
         viewModelScope.launch {
             val item = BookApi.retrofitServer.getBooksWithVolumeId(id)
 
-            bookName.value = item.volumeInfo?.title ?: "Empty Title"
-            bookSubtitle.value = item.volumeInfo?.subtitle ?: "Empty Subtitle"
-            bookDescribtion.value = item.volumeInfo?.description ?: "Empty Description"
+            bookName.value = item.volumeInfo?.title ?: " "
+            bookSubtitle.value = item.volumeInfo?.subtitle ?: " "
+            bookDescribtion.value = item.volumeInfo?.description ?: " "
             try {
 
                 bookImage.value = item.volumeInfo?.imageLinks?.thumbnail ?: "Empty Image"

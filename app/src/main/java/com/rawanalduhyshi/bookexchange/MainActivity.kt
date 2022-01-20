@@ -66,7 +66,6 @@ class MainActivity : AppCompatActivity() {
             val email = FirebaseAuth.getInstance().currentUser?.email
             val fullName = FirebaseAuth.getInstance().currentUser?.displayName
             val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-            Log.e("TAG", userId.toString())
             val documentReference: DocumentReference = db.collection("users")
                 .document(FirebaseAuth.getInstance().currentUser?.uid.toString())
             val user = hashMapOf(
@@ -78,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         } else {
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Error login", Toast.LENGTH_SHORT).show()
         }
     }
 }

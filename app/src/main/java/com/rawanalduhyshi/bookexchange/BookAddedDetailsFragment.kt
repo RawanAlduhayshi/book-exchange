@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
 import com.rawanalduhyshi.bookexchange.data.BookInfo
 import com.rawanalduhyshi.bookexchange.databinding.FragmentBookAddedDetailsBinding
@@ -51,6 +53,7 @@ class BookAddedDetailsFragment : Fragment() {
 
         val db = FirebaseFirestore.getInstance()
         val books = mutableListOf<BookInfo>()
+        val users = mutableListOf<FirebaseUser>()
         db.collection("books").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if (error != null) {
@@ -63,6 +66,10 @@ class BookAddedDetailsFragment : Fragment() {
                     }
                 }
                 val book = books.find { it.bookId == bookId }
+                var userId= book?.userId
+                val user = users.find{it.userId == userId}
+                val email = user?.email
+
                 name.text = book?.name.toString()
                 author.text = book?.author.toString()
                 description.text = book?.description.toString()
@@ -70,15 +77,22 @@ class BookAddedDetailsFragment : Fragment() {
 
         })
 
+
         var builder = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
             .setSmallIcon(R.drawable.notification_icon)
             .setContentTitle("new request")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         val request = binding.request
+        val bookforSpecificUser = books.find { it.bookId == bookId }
+        var userId= bookforSpecificUser?.userId
+        val user = users.find{it.userId == userId}
+        val email = user?.email
         request.setOnClickListener {
 
-            // Create an explicit intent for an Activity in your app
+val emailIntent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + email))
+           startActivity(emailIntent)
+            // Create an explicit intent for an Activity in your app}
             val intent = Intent(requireContext(), AlertFragment::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             }
