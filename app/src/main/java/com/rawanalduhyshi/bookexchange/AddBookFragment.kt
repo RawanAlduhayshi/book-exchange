@@ -80,7 +80,6 @@ class AddBookFragment : Fragment() {
                 "imageUrl" to imageTask
 
             )
-            val documentReference: DocumentReference = db.collection("books").document(userId)
             db.collection("books")
                 .add(AddedBook)
                 .addOnSuccessListener {
@@ -89,10 +88,6 @@ class AddBookFragment : Fragment() {
                     binding.bookName.setText("")
                     binding.bookDescribtion.setText("")
                     binding.bookAuthor.setText("")
-
-                }
-
-                .addOnFailureListener {
 
                 }
 

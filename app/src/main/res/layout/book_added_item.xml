@@ -22,8 +22,6 @@
         android:layout_width="186dp"
         android:layout_height="179dp"
         android:layout_margin="8dp"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
         android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/avatars" />
 
