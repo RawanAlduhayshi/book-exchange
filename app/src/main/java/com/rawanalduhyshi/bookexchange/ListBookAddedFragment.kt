@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -34,14 +36,20 @@ class ListBookAddedFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         eventChangeListener()
-
+        val db = FirebaseFirestore.getInstance()
+//        Firebase.auth.currentUser?.let { db.collection("users").document(it.uid).
+//        collection("books").get().addOnCompleteListener (object: ){
+//           override fun onC
+//
+//            }
+//        )
+//            }
         return binding.root
     }
 
-    val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-    }
+    val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+
 
     private fun eventChangeListener() {
         val db = FirebaseFirestore.getInstance()
@@ -65,6 +73,7 @@ class ListBookAddedFragment : Fragment() {
                 }
             })
     }
+
 
 //    private fun deleteBook(book: BookInfo) = CoroutineScope(Dispatchers.IO).launch {
 //        Log.e("TAG", "deleteBook:come delete please I want to finish this  ", )

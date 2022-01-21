@@ -34,6 +34,7 @@
             style="@style/Widget.BookExchange.ListBookTextView"
             android:layout_width="142dp"
             android:layout_height="43dp"
+            android:fontFamily="sans-serif"
             android:text="book author"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/item_book_name"

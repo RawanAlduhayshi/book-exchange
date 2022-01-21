@@ -74,7 +74,7 @@ class AddBookFragment : Fragment() {
             val AddedBook = hashMapOf(
                 "name" to binding.bookName.text.toString(),
                 "description" to binding.bookDescribtion.text.toString(),
-                "author" to binding.bookAuthor.toString(),
+                "author" to binding.bookAuthor.text.toString(),
                 "bookId" to Math.random().toString(),
                 "userId" to FirebaseAuth.getInstance().currentUser?.uid.toString(),
                 "imageUrl" to imageTask

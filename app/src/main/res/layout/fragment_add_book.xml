@@ -14,8 +14,7 @@
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="@string/label">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/bookName"
@@ -108,6 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/choose_book_image"
         app:layout_constraintVertical_bias="0.175" />
 
+
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/bookAuthorLayout"
@@ -124,12 +124,18 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/bookAuthor"
             android:layout_width="match_parent"
-            android:lines="1"
-            android:hint="@string/supporting_text"
+            android:lines="9"
+            android:hint="@string/book_describtion"
             android:inputType="text"
             android:layout_height="match_parent" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
 
     <Button
         android:id="@+id/choose"
