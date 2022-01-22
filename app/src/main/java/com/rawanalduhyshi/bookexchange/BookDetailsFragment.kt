@@ -1,6 +1,7 @@
 package com.rawanalduhyshi.bookexchange
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rawanalduhyshi.bookexchange.databinding.FragmentBookDetailsBinding
+import com.rawanalduhyshi.bookexchange.viewmodels.BookViewModel
 
 
 class BookDetailsFragment : Fragment() {
@@ -20,7 +22,6 @@ class BookDetailsFragment : Fragment() {
         arguments.let {
             book = it?.getString("id") ?: ""
         }
-
     }
 
     override fun onCreateView(
@@ -31,30 +32,27 @@ class BookDetailsFragment : Fragment() {
         val binding = FragmentBookDetailsBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.detailsViewModel = bookDetailsViewModel
-        val requestbtn = binding.requestBtn
-        requestbtn.setOnClickListener {
-            save()
 
-        }
-        return binding?.root
+        return binding.root
 
     }
 
-    override  fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Log.e("TAG", "onViewCreated: ${book}")
         bookDetailsViewModel.booksInfo(book)
     }
 
     fun save() {
-//        var storageRef = images.
-//        val mountainsRef = storageRef.child("mountains.jpg")
+
         val db = Firebase.firestore
         val user = hashMapOf(
             "first" to "BookRequests",
             "last" to "email"
         )
 
-// Add a new document with a generated ID
+
         db.collection("users")
             .add(user)
         Toast.makeText(activity, "your request successful, wait for awoner", Toast.LENGTH_SHORT)

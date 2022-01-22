@@ -1,7 +1,8 @@
 package com.rawanalduhyshi.bookexchange.data
 
-import android.content.ClipData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -13,5 +14,5 @@ interface BookDao {
     fun getItem(id: Int): Flow<Book>
 
     @Insert()
-    suspend fun insert(book:Book): Long
+    suspend fun insert(book: Book): Long
 }

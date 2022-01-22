@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "59335405263",
+    "firebase_url": "https://book-exchange-887d6-default-rtdb.firebaseio.com",
     "project_id": "book-exchange-887d6",
     "storage_bucket": "book-exchange-887d6.appspot.com"
   },
