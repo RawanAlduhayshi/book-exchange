@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         if (FirebaseAuth.getInstance().currentUser != null) {
             button.text = "SignOut"
         } else {
-            button.text = "Hello"
+            button.text = "SignIn"
         }
     }
 
