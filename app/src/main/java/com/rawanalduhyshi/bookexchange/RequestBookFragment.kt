@@ -24,7 +24,7 @@ import java.util.*
 
 
 class RequestBookFragment : Fragment() {
-    private val requestViewModel: BookRoomViewModel by activityViewModels {
+    private val viewModel: BookRoomViewModel by activityViewModels {
         BookViewModelFactory(
             (requireActivity().application as BookApplication).database.bookDao()
         )
@@ -53,9 +53,18 @@ class RequestBookFragment : Fragment() {
         return binding.root
     }
 
+    private fun isEntryValid(img:String): Boolean {
+        return viewModel.isEntryValid(
+            binding.requestBookName.text.toString(),
+            binding.requestBookDescription.text.toString(),
+            binding.requestBookAuthor.text.toString(),
+            img
 
+
+        )
+    }
     private fun addNewRequest(imageUrlTask: String) {
-
+           if( isEntryValid(imageUrlTask)){
         val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
         val AddedBook = hashMapOf(
             "name" to binding.requestBookName.text.toString(),
@@ -82,13 +91,16 @@ class RequestBookFragment : Fragment() {
 
             }
         FirebaseAuth.getInstance().currentUser?.let {
-            requestViewModel.addNewItem(
+            viewModel.addNewItem(
                 binding.requestBookName.text.toString(),
                 binding.requestBookDescription.text.toString()
 
 
             )
-        }
+        }}
+           else{
+               Toast.makeText(requireContext(), "Please full all fields", Toast.LENGTH_SHORT)
+                   .show()}
 
 
     }
@@ -125,6 +137,7 @@ class RequestBookFragment : Fragment() {
             storageReference.putFile(imageUri)
                 .addOnSuccessListener { imageTask ->
                     imageTask.metadata?.reference?.downloadUrl?.addOnCompleteListener { imageDownloadTask ->
+                        isEntryValid(imageDownloadTask.result.toString())
                         addNewRequest(imageDownloadTask.result.toString())
 
                     }

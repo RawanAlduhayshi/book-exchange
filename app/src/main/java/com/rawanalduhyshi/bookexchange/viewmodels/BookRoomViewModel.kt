@@ -33,8 +33,8 @@ class BookRoomViewModel(private val bookDao: BookDao) : ViewModel() {
         }
     }
 
-    fun isEntryValid(bookName: String, description: String): Boolean {
-        if (bookName.isBlank() || description.isBlank()) {
+    fun isEntryValid(bookName: String, description: String,author:String,image:String): Boolean {
+        if (bookName.isBlank() || description.isBlank()||author.isBlank()||image.isBlank()) {
             return false
         }
         return true

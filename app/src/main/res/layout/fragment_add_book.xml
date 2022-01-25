@@ -116,16 +116,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookNameLayout"
-        >
+        android:hint="@string/supporting_text">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/bookAuthor"
             android:layout_width="match_parent"
-            android:lines="9"
-            android:hint="@string/author"
+            android:lines="1"
+
             android:inputType="text"
             android:layout_height="match_parent" />
 

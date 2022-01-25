@@ -59,17 +59,19 @@ class AddBookFragment : Fragment() {
         return binding.root
     }
 
-    private fun isEntryValid(): Boolean {
+    private fun isEntryValid(img:String): Boolean {
         return viewModel.isEntryValid(
             binding.bookName.text.toString(),
-            binding.bookDescribtion.text.toString()
+            binding.bookDescribtion.text.toString(),
+            binding.bookAuthor.text.toString(),
+           img
 
 
         )
     }
 
     private fun addNewItem(imageTask: String) {
-        if (isEntryValid()) {
+        if (isEntryValid(imageTask)) {
             val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
             val AddedBook = hashMapOf(
                 "name" to binding.bookName.text.toString(),
@@ -100,7 +102,9 @@ class AddBookFragment : Fragment() {
                 )
             }
 
-        }
+        }else{
+            Toast.makeText(requireContext(), "Please full all fields", Toast.LENGTH_SHORT)
+                .show()}
     }
 
 
@@ -118,7 +122,7 @@ class AddBookFragment : Fragment() {
             storageReference.putFile(imageUri)
                 .addOnSuccessListener { imageTask ->
                     imageTask.metadata?.reference?.downloadUrl?.addOnCompleteListener { imageDownloadTask ->
-
+                   isEntryValid(imageDownloadTask.result.toString())
                         addNewItem(imageDownloadTask.result.toString())
 
                     }
