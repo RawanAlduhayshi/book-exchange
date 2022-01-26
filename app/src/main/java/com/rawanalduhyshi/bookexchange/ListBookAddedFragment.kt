@@ -19,7 +19,6 @@ import com.rawanalduhyshi.bookexchange.databinding.FragmentListBookAddedBinding
 
 
 class ListBookAddedFragment : Fragment() {
-    private val booksCollectionRef = Firebase.firestore.collection("books")
     var books: BookInfo? = null
     private var bookInfoList = mutableListOf<BookInfo?>()
 
@@ -36,19 +35,13 @@ class ListBookAddedFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         eventChangeListener()
-        val db = FirebaseFirestore.getInstance()
-//        Firebase.auth.currentUser?.let { db.collection("users").document(it.uid).
-//        collection("books").get().addOnCompleteListener (object: ){
-//           override fun onC
-//
-//            }
-//        )
-//            }
+
+
         return binding.root
     }
 
 
-    val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+
 
 
     private fun eventChangeListener() {
