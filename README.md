@@ -13,7 +13,7 @@ Book exchange data fetched by (https://www.googleapis.com/books/) API
 .Navigation Components
 
 # Features
-. Add books to exchange.
+. Add books to exchange.<br />
 . Request books.
 . Show google books.
 . Display list of added books to request.
