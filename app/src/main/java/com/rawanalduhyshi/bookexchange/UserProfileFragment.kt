@@ -7,10 +7,12 @@ import android.icu.text.SimpleDateFormat
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -37,8 +39,8 @@ class UserProfileFragment : Fragment() {
     ): View? {
 
         val binding = FragmentUserProfileBinding.inflate(inflater)
-        val user_email = binding.userEmail
-        val user_name = binding.userName
+        var user_email = binding.userEmail
+        var user_name = binding.userName
         val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
 
         val db = FirebaseFirestore.getInstance()
@@ -55,8 +57,8 @@ class UserProfileFragment : Fragment() {
                     }
                 }
                 val user = users.find { it.userId == userId }
-                user_email.text = user?.email
-                user_name.text = user?.fName
+                user_email.text= user?.email as String
+                user_name.text= user?.fName as String
             }
 
         })
