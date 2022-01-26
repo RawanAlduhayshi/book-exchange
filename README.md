@@ -30,7 +30,11 @@ Book exchange data fetched by (https://www.googleapis.com/books/) API
 . RecyclerView and CardView
 
 # UI
-![home](https://user-images.githubusercontent.com/92260419/151214404-8d8d29ef-14bc-4290-bbc3-cff45f9597b3.jpeg)
+![home](https://user-images.githubusercontent.com/92260419/151214404-8d8d29ef-14bc-4290-bbc3-cff4![list](https://user-images.githubusercontent.com/92260419/151214877-d913b237-f143-430b-b033-f7261e28923a.jpeg)
+5f9597b3.jpeg)
+
+
+
 
 
 
