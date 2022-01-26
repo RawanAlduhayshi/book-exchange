@@ -14,20 +14,20 @@ Book exchange data fetched by (https://www.googleapis.com/books/) API
 
 # Features
 . Add books to exchange.<br />
-. Request books.
-. Show google books.
-. Display list of added books to request.
-. Show list of requested books to add.
-. Request book by E-mail.
-. Notification to request a book.
-. dispaly user added and requested book.
+. Request books.<br />
+. Show google books.<br />
+. Display list of added books to request.<br />
+. Show list of requested books to add.<br />
+. Request book by E-mail.<br />
+. Notification to request a book.<br />
+. dispaly user added and requested book.<br />
 
 # Libraries
-. Coroutine
-. Retrofit2
-. Coil
-. Design Library Lottee
-. RecyclerView and CardView
+. Coroutine<br />
+. Retrofit2<br />
+. Coil<br />
+. Design Library Lottee<br />
+. RecyclerView and CardView<br />
 
 # UI
 ![home](https://user-images.githubusercontent.com/92260419/151214404-8d8d29ef-14bc-4290-bbc3-cff45f9597b3.jpeg)
