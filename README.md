@@ -1,6 +1,6 @@
 # book-exchange
 This android application displays books to exchange between others.
-Book exchange data fetched by https://www.googleapis.com/books/ API
+Book exchange data fetched by (https://www.googleapis.com/books/) API
 
 # Jetpack components
 . ViewModel & Live Data
@@ -28,6 +28,10 @@ Book exchange data fetched by https://www.googleapis.com/books/ API
 . Coil
 . Design Library Lottee
 . RecyclerView and CardView
+
+# UI
+![home](https://user-images.githubusercontent.com/92260419/151214404-8d8d29ef-14bc-4290-bbc3-cff45f9597b3.jpeg)
+
 
 
 
