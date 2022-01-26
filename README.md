@@ -3,14 +3,14 @@ This android application displays books to exchange between others.
 Book exchange data fetched by (https://www.googleapis.com/books/) API
 
 # Jetpack components
-. ViewModel & Live Data
-. Coroutines
-. Coil for loading images
-. Recycler View
-. Data Binding
-. Lifecycle
-. Room
-.Navigation Components
+. ViewModel & Live Data<br />
+. Coroutines<br />
+. Coil for loading images<br />
+. Recycler View<br />
+. Data Binding<br />
+. Lifecycle<br />
+. Room<br />
+.Navigation Components<br />
 
 # Features
 . Add books to exchange.<br />
