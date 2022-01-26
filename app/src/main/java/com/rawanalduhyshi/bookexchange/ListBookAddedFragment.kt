@@ -17,7 +17,11 @@ import com.rawanalduhyshi.bookexchange.adapters.MyBooksAdd
 import com.rawanalduhyshi.bookexchange.data.BookInfo
 import com.rawanalduhyshi.bookexchange.databinding.FragmentListBookAddedBinding
 
-
+class companionUser{
+    companion object UserId{
+        val userId= FirebaseAuth.getInstance().currentUser?.uid
+    }
+}
 class ListBookAddedFragment : Fragment() {
     var books: BookInfo? = null
     private var bookInfoList = mutableListOf<BookInfo?>()
@@ -60,7 +64,7 @@ class ListBookAddedFragment : Fragment() {
                         }
                     }
                     val adapter =
-                        MyBooksAdd(bookInfoList.filter { it?.userId == FirebaseAuth.getInstance().currentUser?.uid }
+                        MyBooksAdd(bookInfoList.filter { it?.userId == companionUser.userId}
                             .toMutableList(), { (it) })
                     binding.recyclerView.adapter = adapter
                 }

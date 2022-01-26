@@ -1,4 +1,5 @@
 package com.rawanalduhyshi.bookexchange.adapters
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -7,6 +8,8 @@ import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.rawanalduhyshi.bookexchange.FirebaseUser
 import com.rawanalduhyshi.bookexchange.ListFragmentDirections
 import com.rawanalduhyshi.bookexchange.R
 import com.rawanalduhyshi.bookexchange.databinding.BookItemBinding
@@ -64,3 +67,5 @@ class BookGridAdapter:
         }
     }
 }
+
+

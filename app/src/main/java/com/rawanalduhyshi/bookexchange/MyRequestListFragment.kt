@@ -76,7 +76,7 @@ class MyRequestListFragment : Fragment() {
 
                 }
                 val adapter =
-                    MyRequestAdapter(bookInfoList.filter { it?.userId == FirebaseAuth.getInstance().currentUser?.uid }
+                    MyRequestAdapter(bookInfoList.filter { it?.userId == companionUser.userId }
                         .toMutableList())
                 binding.recyclerView.adapter = adapter
             }
